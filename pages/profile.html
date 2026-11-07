@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#123f9a">
+	<meta name="description" content="Consulta tu perfil y el resumen de tu aprendizaje en IncluSign.">
+	<title>IncluSign | Mi perfil</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+	<div class="container app-shell py-3 py-lg-4">
+		<div class="workspace-layout">
+			<aside class="app-sidebar" aria-label="Navegación principal">
+				<div class="sidebar-header">
+					<a class="sidebar-brand" href="main.html" aria-label="IncluSign, inicio"><img class="sidebar-logo-full" src="../assets/img/logo.png" alt="IncluSign"><img class="sidebar-logo-compact" src="../assets/img/logo-img.png" alt=""></a>
+					<button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="Compactar navegación" aria-expanded="true" aria-controls="primaryNavigation" title="Compactar navegación"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg><span class="visually-hidden">Compactar navegación</span></button>
+				</div>
+				<p class="sidebar-section-label">TU ESPACIO</p>
+				<nav class="app-nav" id="primaryNavigation" aria-label="Secciones">
+					<a class="app-nav-link" href="main.html" aria-label="Mi aprendizaje" title="Mi aprendizaje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Mi aprendizaje</span></a>
+					<a class="app-nav-link" href="catalog.html" aria-label="Explorar lecciones" title="Explorar lecciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8m-8 4h6"/></svg><span>Explorar lecciones</span></a>
+					<a class="app-nav-link active" href="profile.html" aria-current="page" aria-label="Mi perfil" title="Mi perfil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2z"/></svg><span>Mi perfil</span></a>
+				</nav>
+				<div class="sidebar-footer">
+					<div class="sidebar-tip"><span aria-hidden="true">✦</span><p class="mb-0">Cada seña te acerca a una nueva conversación.</p></div>
+					<div class="sidebar-profile"><span class="nav-avatar" aria-hidden="true">ES</span><span><strong>Mi espacio</strong><small>Estudiante</small></span></div>
+					<a class="sidebar-logout" href="login.html" data-session-logout><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5m5 5H3m9-9h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg><span>Cerrar sesión</span></a>
+				</div>
+			</aside>
+
+			<div class="workspace-main">
+				<header class="mobile-topbar"><a class="brand-lockup" href="main.html" aria-label="IncluSign, inicio"><img class="brand-logo" src="../assets/img/logo.png" alt="Logo de IncluSign"></a><a class="mobile-exit" href="login.html" data-session-logout aria-label="Cerrar sesión"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5m5 5H3m9-9h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg></a></header>
+
+				<main>
+					<header class="mb-4">
+						<p class="eyebrow mb-1">Tu cuenta</p>
+						<h1 class="display-6 fw-bold mb-2">Mi perfil</h1>
+						<p class="text-muted-custom mb-0">Consulta tu información y revisa cómo avanzas en tu aprendizaje.</p>
+					</header>
+
+					<section class="surface-card profile-card p-3 p-md-4 mb-4" aria-labelledby="profile-name">
+						<div class="profile-avatar" aria-hidden="true">ES</div>
+						<div class="profile-summary">
+							<p class="eyebrow mb-1">Estudiante</p>
+							<h2 id="profile-name" class="h3 fw-bold mb-1">Mi espacio</h2>
+							<p class="text-muted-custom mb-0">Aprendiz de Lengua de Señas Colombiana</p>
+						</div>
+						<a class="btn btn-outline-brand profile-action" href="main.html">Volver a mi aprendizaje</a>
+					</section>
+
+					<section class="row g-3 mb-4" aria-label="Resumen de aprendizaje">
+						<div class="col-12 col-md-4"><article class="stat-card h-100"><span class="stat-icon" aria-hidden="true">✓</span><div><p class="small text-muted-custom mb-1">Lecciones completadas</p><p class="h5 fw-bold mb-0">3 de 12</p></div></article></div>
+						<div class="col-12 col-md-4"><article class="stat-card h-100"><span class="stat-icon" aria-hidden="true">◷</span><div><p class="small text-muted-custom mb-1">Tiempo de práctica</p><p class="h5 fw-bold mb-0">45 minutos esta semana</p></div></article></div>
+						<div class="col-12 col-md-4"><article class="stat-card h-100"><span class="stat-icon" aria-hidden="true">✦</span><div><p class="small text-muted-custom mb-1">Ritmo actual</p><p class="h5 fw-bold mb-0">¡Vas muy bien!</p></div></article></div>
+					</section>
+
+					<section class="surface-card p-3 p-md-4" aria-labelledby="profile-courses-heading">
+						<div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3">
+							<div>
+								<p class="eyebrow mb-1">Tu recorrido</p>
+								<h2 id="profile-courses-heading" class="h4 fw-bold mb-0">Mis cursos</h2>
+							</div>
+							<a class="btn btn-outline-brand" href="catalog.html">Explorar cursos</a>
+						</div>
+						<article class="profile-course">
+							<div class="d-flex justify-content-between align-items-start gap-3 mb-2">
+								<div><h3 class="h6 fw-bold mb-1">Fundamentos de LSC</h3><p class="small text-muted-custom mb-0">Principiante · 3 de 4 lecciones</p></div>
+								<strong class="small text-brand">60%</strong>
+							</div>
+							<div class="progress" role="progressbar" aria-label="Progreso en Fundamentos de LSC" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 60%"></div></div>
+							<a class="small d-inline-block mt-3 text-decoration-none" href="serviceDetails.html">Continuar aprendiendo <span aria-hidden="true">→</span></a>
+						</article>
+					</section>
+				</main>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="../assets/js/app.js"></script>
+</body>
+</html>
