@@ -1,142 +1,19 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#123f9a">
-	<meta name="description" content="Explora cursos y lecciones de Lengua de Señas Colombiana en IncluSign.">
-	<title>IncluSign | Catálogo de lecciones</title>
+	<meta name="description" content="Aprende y consulta la Lengua de Señas Colombiana con IncluSign.">
+	<title>Catálogo de lecciones | IncluSign</title>
+	<link rel="icon" type="image/png" href="../assets/img/logo-img.png">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
-	<div class="container app-shell py-3 py-lg-4">
-		<div class="workspace-layout">
-			<aside class="app-sidebar" aria-label="Navegación principal">
-				<div class="sidebar-header">
-					<a class="sidebar-brand" href="login.html" data-catalog-home-link aria-label="IncluSign, inicio"><img class="sidebar-logo-full" src="../assets/img/logo.png" alt="IncluSign"><img class="sidebar-logo-compact" src="../assets/img/logo-img.png" alt=""></a>
-					<button class="sidebar-toggle" type="button" data-sidebar-toggle aria-label="Compactar navegación" aria-expanded="true" aria-controls="primaryNavigation" title="Compactar navegación"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 18-6-6 6-6"/></svg><span class="visually-hidden">Compactar navegación</span></button>
-				</div>
-				<p class="sidebar-section-label">TU ESPACIO</p>
-				<nav class="app-nav" id="primaryNavigation" aria-label="Secciones">
-					<a class="app-nav-link" href="main.html" data-authenticated-only hidden aria-label="Mi aprendizaje" title="Mi aprendizaje"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Mi aprendizaje</span></a>
-					<a class="app-nav-link active" href="catalog.html" aria-current="page" aria-label="Explorar lecciones" title="Explorar lecciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8m-8 4h6"/></svg><span>Explorar lecciones</span></a>
-					<a class="app-nav-link" href="profile.html" data-authenticated-only hidden aria-label="Mi perfil" title="Mi perfil"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2z"/></svg><span>Mi perfil</span></a>
-				</nav>
-				<div class="sidebar-footer" data-authenticated-only hidden>
-					<div class="sidebar-tip"><span aria-hidden="true">✦</span><p class="mb-0">Cada seña te acerca a una nueva conversación.</p></div>
-					<div class="sidebar-profile"><span class="nav-avatar" aria-hidden="true">ES</span><span><strong>Mi espacio</strong><small>Estudiante</small></span></div>
-					<a class="sidebar-logout" href="login.html" data-session-logout><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5m5 5H3m9-9h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg><span>Cerrar sesión</span></a>
-				</div>
-			</aside>
-
-			<div class="workspace-main">
-				<header class="mobile-topbar"><a class="brand-lockup" href="login.html" data-catalog-home-link aria-label="IncluSign, inicio"><img class="brand-logo" src="../assets/img/logo.png" alt="Logo de IncluSign"></a><a class="mobile-exit" href="login.html" data-authenticated-only hidden data-session-logout aria-label="Cerrar sesión"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5m5 5H3m9-9h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg></a></header>
-
-				<main>
-					<header class="catalog-heading mb-4">
-						<div>
-							<p class="eyebrow mb-2">Aprende a tu ritmo</p>
-							<h1 class="display-6 fw-bold mb-2">Catálogo de lecciones</h1>
-							<p class="text-muted-custom mb-0">Explora los cursos, consulta sus objetivos y descubre las lecciones que incluye cada ruta.</p>
-						</div>
-						<a class="btn btn-brand flex-shrink-0" href="login.html" data-guest-only>Iniciar sesión</a>
-						<a class="btn btn-outline-brand flex-shrink-0" href="main.html" data-authenticated-only hidden>Volver a mi aprendizaje</a>
-					</header>
-
-					<section class="catalog-list" aria-label="Cursos disponibles">
-						<details class="catalog-course" open>
-							<summary class="catalog-course-summary">
-								<span class="catalog-course-icon" aria-hidden="true">✦</span>
-								<span class="catalog-course-title"><strong>Fundamentos de LSC</strong><small>Principiante · 4 lecciones · 35 minutos</small></span>
-								<span class="level-pill">Curso inicial</span>
-							</summary>
-							<div class="catalog-course-content">
-								<p>Conoce conceptos esenciales de la Lengua de Señas Colombiana y desarrolla bases para comunicarte con respeto.</p>
-								<ol class="catalog-lesson-list">
-									<li><span>Saludos y presentaciones</span><span>8 min</span></li>
-									<li><span>Alfabeto dactilológico</span><span>12 min</span></li>
-									<li><span>Números y datos personales</span><span>7 min</span></li>
-									<li><span>Expresiones de cortesía</span><span>8 min</span></li>
-								</ol>
-							</div>
-						</details>
-
-						<details class="catalog-course">
-							<summary class="catalog-course-summary">
-								<span class="catalog-course-icon catalog-icon-lilac" aria-hidden="true">◉</span>
-								<span class="catalog-course-title"><strong>Conversación cotidiana</strong><small>Básico · 4 lecciones · 42 minutos</small></span>
-								<span class="level-pill">Vida diaria</span>
-							</summary>
-							<div class="catalog-course-content">
-								<p>Practica vocabulario y frases para participar en conversaciones frecuentes de la vida diaria.</p>
-								<ol class="catalog-lesson-list">
-									<li><span>Familia y personas cercanas</span><span>10 min</span></li>
-									<li><span>Rutinas y actividades</span><span>11 min</span></li>
-									<li><span>Comidas y preferencias</span><span>9 min</span></li>
-									<li><span>Preguntas y respuestas comunes</span><span>12 min</span></li>
-								</ol>
-							</div>
-						</details>
-
-						<details class="catalog-course">
-							<summary class="catalog-course-summary">
-								<span class="catalog-course-icon catalog-icon-sky" aria-hidden="true">⌂</span>
-								<span class="catalog-course-title"><strong>Comunidad y cultura sorda</strong><small>Introducción · 4 lecciones · 40 minutos</small></span>
-								<span class="level-pill">Cultura</span>
-							</summary>
-							<div class="catalog-course-content">
-								<p>Acércate a la diversidad de la comunidad sorda, su cultura y las pautas para una interacción inclusiva.</p>
-								<ol class="catalog-lesson-list">
-									<li><span>Identidad y comunidad sorda</span><span>10 min</span></li>
-									<li><span>Atención visual y turnos de conversación</span><span>10 min</span></li>
-									<li><span>Cómo llamar la atención con respeto</span><span>8 min</span></li>
-									<li><span>Mitos y comunicación inclusiva</span><span>12 min</span></li>
-								</ol>
-							</div>
-						</details>
-
-						<details class="catalog-course">
-							<summary class="catalog-course-summary">
-								<span class="catalog-course-icon" aria-hidden="true">⌖</span>
-								<span class="catalog-course-title"><strong>Lugares y cómo llegar</strong><small>Básico · 4 lecciones · 38 minutos</small></span>
-								<span class="level-pill">Orientación</span>
-							</summary>
-							<div class="catalog-course-content">
-								<p>Aprende a nombrar espacios, ubicarte y compartir indicaciones sencillas para llegar a un destino.</p>
-								<ol class="catalog-lesson-list">
-									<li><span>Lugares de la ciudad</span><span>9 min</span></li>
-									<li><span>Direcciones y ubicaciones</span><span>10 min</span></li>
-									<li><span>Transporte y movilidad</span><span>9 min</span></li>
-									<li><span>Dar y seguir indicaciones</span><span>10 min</span></li>
-								</ol>
-							</div>
-						</details>
-
-						<details class="catalog-course">
-							<summary class="catalog-course-summary">
-								<span class="catalog-course-icon catalog-icon-lilac" aria-hidden="true">♡</span>
-								<span class="catalog-course-title"><strong>Emociones y bienestar</strong><small>Básico · 4 lecciones · 36 minutos</small></span>
-								<span class="level-pill">Expresión</span>
-							</summary>
-							<div class="catalog-course-content">
-								<p>Amplía tu vocabulario para expresar estados de ánimo, necesidades y hábitos de autocuidado.</p>
-								<ol class="catalog-lesson-list">
-									<li><span>Emociones y estados de ánimo</span><span>9 min</span></li>
-									<li><span>Salud y bienestar</span><span>10 min</span></li>
-									<li><span>Expresar necesidades</span><span>8 min</span></li>
-									<li><span>Conversaciones de apoyo</span><span>9 min</span></li>
-								</ol>
-							</div>
-						</details>
-					</section>
-
-				</main>
-			</div>
-		</div>
-	</div>
-
+<body data-page="catalogo">
+	<noscript><p style="padding:2rem;font-family:sans-serif">IncluSign necesita JavaScript activado para funcionar.</p></noscript>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="../assets/js/datos.js"></script>
 	<script src="../assets/js/app.js"></script>
 </body>
 </html>

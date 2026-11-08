@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Actividad 4 – Prototipo funcional IncluSign</title>
+<style>
+  @page { size: Letter; margin: 2.54cm; @top-right { content: counter(page); font-family: "Times New Roman", Times, serif; font-size: 12pt; } }
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.6; color: #000; margin: 0; }
+  h1, h2, h3 { font-weight: bold; page-break-after: avoid; }
+  h1 { font-size: 13pt; text-align: center; margin: 0 0 1.2em; text-transform: uppercase; }
+  h2 { font-size: 12pt; margin: 1.6em 0 .6em; }
+  h3 { font-size: 12pt; margin: 0 0 .6em; }
+  p { margin: 0 0 .8em; text-align: justify; text-indent: 1.27cm; }
+  p.noindent { text-indent: 0; }
+  ul, ol { margin: 0 0 .8em 1.27cm; padding: 0; }
+  li { margin-bottom: .25em; }
+  table { width: 100%; border-collapse: collapse; margin: .4em 0 1.2em; font-size: 10.5pt; line-height: 1.35; }
+  tr { page-break-inside: avoid; }
+  th, td { border: 1px solid #000; padding: 5px 7px; vertical-align: top; text-align: left; }
+  th { background: #e8e8e8; text-align: center; }
+  td.c { text-align: center; }
+  td.group { background: #f3f3f3; font-weight: bold; }
+  .page { page-break-after: always; }
+  .newpage { page-break-before: always; }
+  .cover { text-align: center; padding-top: 3.2cm; }
+  .cover p { text-align: center; text-indent: 0; margin: 0 0 .5em; }
+  .cover .title { font-weight: bold; margin-bottom: 4cm; }
+  .cover .gap { height: 2cm; }
+  .toc p { text-indent: 0; margin: 0 0 .25em; display: flex; }
+  .toc p .dots { flex: 1; border-bottom: 1px dotted #000; margin: 0 4px 6px; }
+  .toc p.sub { padding-left: 1cm; }
+  .story { page-break-before: always; }
+  .story-card { border: 1px solid #000; margin: 0 0 1em; }
+  .story-card div { padding: 6px 10px; border-bottom: 1px solid #000; }
+  .story-card div:last-child { border-bottom: 0; }
+  .story-card .label { font-weight: bold; }
+  figure { margin: .6em 0 0; page-break-inside: avoid; }
+  figure .flabel { font-weight: bold; margin: 0; text-indent: 0; }
+  figure .ftitle { font-style: italic; margin: 0 0 .4em; text-indent: 0; }
+  figure img { width: auto; max-width: 100%; max-height: 16cm; margin: 0 auto; border: 1px solid #999; display: block; }
+  figure img.phone { width: 6.8cm; margin: 0 auto; }
+  .refs p { text-indent: -1.27cm; padding-left: 1.27cm; text-align: left; }
+</style>
+</head>
+<body>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="page cover">
+  <p class="title">Actividad 4 – Prototipo funcional</p>
+  <p>Jeison Stiven González Santana</p>
+  <p>Natalia Ramos Feo</p>
+  <div class="gap"></div>
+  <p>Facultad de Ingeniería</p>
+  <p><strong>Corporación Universitaria Iberoamericana</strong></p>
+  <div class="gap"></div>
+  <p><strong>Proyecto de Software</strong></p>
+  <p>Ana Mosquera</p>
+  <div class="gap"></div>
+  <p>07 de noviembre de 2026</p>
+</section>
+
+<!-- ===================== CONTENIDO ===================== -->
+<section class="page toc">
+  <h1>Contenido</h1>
+  <p><span>Introducción</span><span class="dots"></span><span>3</span></p>
+  <p><span>1. Recolección de requisitos</span><span class="dots"></span><span>3</span></p>
+  <p class="sub"><span>1.1 Fuentes de información</span><span class="dots"></span><span>3</span></p>
+  <p class="sub"><span>1.2 Usuarios del prototipo</span><span class="dots"></span><span>4</span></p>
+  <p class="sub"><span>1.3 Requisitos identificados</span><span class="dots"></span><span>4</span></p>
+  <p><span>2. Criterios de aceptación</span><span class="dots"></span><span>6</span></p>
+  <p><span>3. Historias de usuario</span><span class="dots"></span><span>9</span></p>
+  <p class="sub"><span>HU-01 Crear una cuenta</span><span class="dots"></span><span>10</span></p>
+  <p class="sub"><span>HU-02 Iniciar sesión</span><span class="dots"></span><span>11</span></p>
+  <p class="sub"><span>HU-03 Ver mi avance y la siguiente lección</span><span class="dots"></span><span>12</span></p>
+  <p class="sub"><span>HU-04 Explorar los cursos</span><span class="dots"></span><span>13</span></p>
+  <p class="sub"><span>HU-05 Aprender las señas de una lección</span><span class="dots"></span><span>14</span></p>
+  <p class="sub"><span>HU-06 Buscar una palabra</span><span class="dots"></span><span>15</span></p>
+  <p class="sub"><span>HU-07 Consultar señas por categoría</span><span class="dots"></span><span>16</span></p>
+  <p class="sub"><span>HU-08 Ver el detalle de una seña y guardarla</span><span class="dots"></span><span>17</span></p>
+  <p class="sub"><span>HU-09 Elegir qué practicar</span><span class="dots"></span><span>18</span></p>
+  <p class="sub"><span>HU-10 Responder la práctica</span><span class="dots"></span><span>19</span></p>
+  <p class="sub"><span>HU-11 Conocer mi resultado</span><span class="dots"></span><span>20</span></p>
+  <p class="sub"><span>HU-12 Consultar mi perfil</span><span class="dots"></span><span>21</span></p>
+  <p class="sub"><span>HU-13 Usar IncluSign desde el celular</span><span class="dots"></span><span>22</span></p>
+  <p><span>Conclusiones</span><span class="dots"></span><span>23</span></p>
+  <p><span>Referencias</span><span class="dots"></span><span>24</span></p>
+</section>
+
+<!-- ===================== INTRODUCCIÓN ===================== -->
+<section>
+  <h1>Actividad 4 – Prototipo funcional</h1>
+  <h2>Introducción</h2>
+  <p>IncluSign es una herramienta para aprender y consultar la Lengua de Señas Colombiana (LSC), pensada para que las personas oyentes den su primer paso para comunicarse con las personas sordas. En Colombia se estima una población aproximada de 554.119 personas sordas (INSOR, 2026), y una de las principales barreras que enfrentan es que gran parte de la población oyente desconoce la LSC. Para que las señas se aprendan correctamente, el prototipo muestra cada seña con el video oficial de la serie #UnaSeñaParaTi del Instituto Nacional para Sordos (INSOR), interpretado por personas usuarias de la LSC.</p>
+  <p>Este documento presenta el prototipo funcional de IncluSign desde el punto de vista de quienes lo van a usar. Primero se describe cómo se recolectaron los requisitos; luego se definen los criterios de aceptación que permiten comprobar que cada requisito se cumple; y por último se presentan las historias de usuario, cada una acompañada del pantallazo del prototipo que la resuelve.</p>
+
+  <!-- ===================== 1. REQUISITOS ===================== -->
+  <h2>1. Recolección de requisitos</h2>
+  <h3>1.1 Fuentes de información</h3>
+  <p>Los requisitos se obtuvieron a partir de cuatro fuentes:</p>
+  <ul>
+    <li><strong>Documento de formulación del proyecto (Actividad 2):</strong> la descripción del problema, el alcance, los objetivos y la matriz de riesgos.</li>
+    <li><strong>Análisis de los interesados (stakeholders):</strong> las necesidades de las personas oyentes, las personas sordas, los estudiantes, las instituciones educativas y el equipo del proyecto.</li>
+    <li><strong>Revisión de una primera maqueta:</strong> se elaboró un diseño rápido con las pantallas principales. Al recorrerlo se detectó que faltaban funciones clave, como buscar una palabra, practicar lo aprendido y guardar el avance, que se incorporaron como requisitos.</li>
+    <li><strong>Contenido oficial del INSOR:</strong> para atender el riesgo de “información incorrecta sobre las señas” identificado en la matriz de riesgos, se revisaron los recursos públicos del INSOR y se eligieron los videos de la serie #UnaSeñaParaTi como representación visual de las señas.</li>
+  </ul>
+
+  <h3>1.2 Usuarios del prototipo</h3>
+  <p class="noindent"><strong>Tabla 1</strong><br><em>Tipos de usuario</em></p>
+  <table>
+    <tr><th style="width:26%">Usuario</th><th>Descripción</th><th style="width:34%">Qué necesita de IncluSign</th></tr>
+    <tr><td>Visitante</td><td>Persona que llega por primera vez y aún no tiene cuenta.</td><td>Consultar señas y conocer los cursos antes de registrarse.</td></tr>
+    <tr><td>Estudiante</td><td>Persona oyente registrada que quiere aprender LSC a su ritmo.</td><td>Aprender con lecciones, consultar señas, practicar y ver su avance.</td></tr>
+  </table>
+
+  <h3>1.3 Requisitos identificados</h3>
+  <p class="noindent"><strong>Tabla 2</strong><br><em>Requisitos funcionales</em></p>
+  <table>
+    <tr><th style="width:9%">ID</th><th>Requisito</th><th style="width:33%">Origen</th></tr>
+    <tr><td>RQ-01</td><td>La persona puede crear una cuenta, iniciar sesión y cerrarla.</td><td>Stakeholder: usuarios finales</td></tr>
+    <tr><td>RQ-02</td><td>La persona ve su avance y qué lección le corresponde continuar.</td><td>Objetivo: enseñanza paulatina y constante</td></tr>
+    <tr><td>RQ-03</td><td>El contenido está organizado en cursos y lecciones por nivel.</td><td>Alcance: organizar el contenido</td></tr>
+    <tr><td>RQ-04</td><td>Cada seña se muestra con un video en el que una persona realiza la seña.</td><td>Alcance: representar las señas mediante recursos visuales</td></tr>
+    <tr><td>RQ-05</td><td>La persona puede buscar una palabra y filtrar las señas por categoría.</td><td>Alcance: facilitar la búsqueda y consulta</td></tr>
+    <tr><td>RQ-06</td><td>La persona puede guardar sus señas favoritas.</td><td>Stakeholder: estudiantes</td></tr>
+    <tr><td>RQ-07</td><td>La persona puede practicar con preguntas y conocer su resultado.</td><td>Objetivo general: recursos interactivos</td></tr>
+    <tr><td>RQ-08</td><td>La persona puede consultar su perfil y actualizar sus datos.</td><td>Stakeholder: usuarios finales</td></tr>
+    <tr><td>RQ-09</td><td>Los videos provienen de una fuente oficial y reconocida, y se indica su origen.</td><td>Riesgos: información incorrecta y recursos visuales inadecuados</td></tr>
+    <tr><td>RQ-10</td><td>En la práctica, la persona identifica la seña solo por el video, sin ver la palabra escrita.</td><td>Objetivo general: recursos interactivos</td></tr>
+  </table>
+
+  <p class="noindent"><strong>Tabla 3</strong><br><em>Requisitos de calidad</em></p>
+  <table>
+    <tr><th style="width:9%">ID</th><th style="width:24%">Característica</th><th>Descripción</th></tr>
+    <tr><td>RQ-11</td><td>Fácil de usar</td><td>Una persona sin experiencia puede encontrar una seña, abrir una lección y practicar sin ayuda. Los mensajes están en lenguaje claro.</td></tr>
+    <tr><td>RQ-12</td><td>Accesible</td><td>Se puede usar con teclado, todos los campos tienen nombre visible y los textos tienen buen contraste, en coherencia con el propósito inclusivo del proyecto.</td></tr>
+    <tr><td>RQ-13</td><td>Disponible en celular</td><td>Todas las funciones se pueden usar desde un celular.</td></tr>
+    <tr><td>RQ-14</td><td>Cuenta protegida</td><td>Cada persona entra con su correo y contraseña, y solo ella ve su avance, sus favoritas y sus resultados.</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 2. CRITERIOS ===================== -->
+<section class="newpage">
+  <h2>2. Criterios de aceptación</h2>
+  <p>Los criterios de aceptación describen las condiciones que debe cumplir el prototipo para que cada historia de usuario se considere terminada. Se redactan con el formato <em>Dado que</em> (situación), <em>cuando</em> (acción) y <em>entonces</em> (resultado esperado). La columna “Estado” indica el resultado de la verificación realizada sobre el prototipo.</p>
+  <p class="noindent"><strong>Tabla 4</strong><br><em>Criterios de aceptación por historia de usuario</em></p>
+  <table>
+    <tr><th style="width:10%">ID</th><th>Criterio</th><th style="width:12%">Estado</th></tr>
+    <tr><td colspan="3" class="group">HU-01 Crear una cuenta</td></tr>
+    <tr><td>CA-01</td><td>Dado que soy visitante, cuando completo mi nombre, correo y una contraseña de al menos 8 caracteres con letras y números, entonces se crea mi cuenta y entro a mi espacio.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-02</td><td>Dado que dejo un dato mal escrito o las contraseñas no coinciden, cuando intento registrarme, entonces el campo se resalta y se explica qué debo corregir.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-03</td><td>Dado que mi correo ya está registrado, cuando intento crear otra cuenta, entonces se me informa que ya existe una cuenta con ese correo.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-02 Iniciar sesión</td></tr>
+    <tr><td>CA-04</td><td>Dado que tengo una cuenta, cuando ingreso mi correo y contraseña correctos, entonces entro a “Mi aprendizaje”.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-05</td><td>Dado que escribo mal la contraseña, cuando intento ingresar, entonces se me indica que el correo o la contraseña no son correctos.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-06</td><td>Dado que no he iniciado sesión, cuando intento abrir mi perfil o la práctica, entonces se me pide iniciar sesión primero.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-03 Ver mi avance y la siguiente lección</td></tr>
+    <tr><td>CA-07</td><td>Dado que inicié sesión, cuando entro a “Mi aprendizaje”, entonces veo la siguiente lección pendiente y un botón para continuarla.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-08</td><td>Dado que completé lecciones, cuando entro a “Mi aprendizaje”, entonces veo cuántas lecciones llevo, cuántas señas aprendí y mi avance por curso.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-04 Explorar los cursos</td></tr>
+    <tr><td>CA-09</td><td>Dado que entro a “Lecciones”, cuando abro un curso, entonces veo su descripción, sus lecciones, la cantidad de señas y la duración de cada una.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-10</td><td>Dado que ya completé una lección, cuando veo el catálogo, entonces esa lección aparece marcada con ✓.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-05 Aprender las señas de una lección</td></tr>
+    <tr><td>CA-11</td><td>Dado que abro una lección, cuando avanzo con las flechas, entonces veo una seña a la vez con su video, su significado y recomendaciones para practicarla.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-12</td><td>Dado que terminé de estudiar una lección, cuando pulso “Marcar como completada”, entonces mi avance se actualiza y se me ofrece la siguiente lección.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-06 Buscar una palabra</td></tr>
+    <tr><td>CA-13</td><td>Dado que estoy en el diccionario, cuando escribo una palabra (con o sin tilde, en mayúsculas o minúsculas), entonces aparecen las señas que coinciden.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-14</td><td>Dado que busco una palabra que no está, cuando realizo la búsqueda, entonces se me sugiere revisar la ortografía o consultar el diccionario del INSOR.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-07 Consultar señas por categoría</td></tr>
+    <tr><td>CA-15</td><td>Dado que estoy en el diccionario, cuando elijo una categoría, entonces solo veo las señas de esa categoría y cuántas son.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-08 Ver el detalle de una seña y guardarla</td></tr>
+    <tr><td>CA-16</td><td>Dado que abro una seña, cuando veo su ficha, entonces encuentro el video de la seña, su significado, la fuente del video y en qué lecciones aparece.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-17</td><td>Dado que inicié sesión, cuando marco una seña con la estrella, entonces queda en “Mis favoritas” y puedo quitarla cuando quiera.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-09 Elegir qué practicar</td></tr>
+    <tr><td>CA-18</td><td>Dado que entro a “Práctica”, cuando elijo practicar todas las señas, una categoría, una lección o mis favoritas, y la cantidad de preguntas (5, 10 o 15), entonces se crea una práctica con esa selección.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-10 Responder la práctica</td></tr>
+    <tr><td>CA-19</td><td>Dado que inicié una práctica, cuando veo una pregunta, entonces se reproduce el video de una seña sin la palabra escrita y aparecen cuatro palabras para elegir la correcta, una pregunta a la vez.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-20</td><td>Dado que no he respondido una pregunta, cuando intento avanzar, entonces no puedo continuar hasta elegir una opción.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-11 Conocer mi resultado</td></tr>
+    <tr><td>CA-21</td><td>Dado que respondí todas las preguntas, cuando pulso “Calificar”, entonces veo mi puntaje, cuáles acerté, cuáles fallé y un enlace para repasar cada seña.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-22</td><td>Dado que terminé una práctica, cuando vuelvo a “Práctica” o a mi perfil, entonces el resultado aparece en mi historial.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-12 Consultar mi perfil</td></tr>
+    <tr><td>CA-23</td><td>Dado que entro a “Mi perfil”, cuando reviso la página, entonces veo mis estadísticas, mi avance por curso, mis favoritas y las lecciones completadas recientemente.</td><td class="c">Cumple</td></tr>
+    <tr><td>CA-24</td><td>Dado que quiero actualizar mis datos, cuando cambio mi nombre o mi contraseña, entonces el cambio se guarda y se me confirma.</td><td class="c">Cumple</td></tr>
+    <tr><td colspan="3" class="group">HU-13 Usar IncluSign desde el celular</td></tr>
+    <tr><td>CA-25</td><td>Dado que abro IncluSign en un celular, cuando navego, entonces el menú aparece en la parte inferior y el contenido se ajusta al ancho de la pantalla.</td><td class="c">Cumple</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 3. HISTORIAS ===================== -->
+<section class="newpage">
+  <h2>3. Historias de usuario</h2>
+  <p>Las historias de usuario describen, en palabras de quien usa la herramienta, qué necesita hacer y para qué. Se escriben con el formato <em>Como</em> (tipo de usuario), <em>quiero</em> (acción) <em>para</em> (beneficio). Cada historia indica su prioridad, los requisitos que atiende, sus criterios de aceptación (detallados en la sección 2) y el pantallazo del prototipo que la resuelve.</p>
+  <p class="noindent"><strong>Tabla 5</strong><br><em>Resumen de historias de usuario</em></p>
+  <table>
+    <tr><th style="width:10%">ID</th><th>Historia</th><th style="width:20%">Usuario</th><th style="width:13%">Prioridad</th></tr>
+    <tr><td>HU-01</td><td>Crear una cuenta</td><td>Visitante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-02</td><td>Iniciar sesión</td><td>Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-03</td><td>Ver mi avance y la siguiente lección</td><td>Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-04</td><td>Explorar los cursos</td><td>Visitante / Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-05</td><td>Aprender las señas de una lección</td><td>Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-06</td><td>Buscar una palabra</td><td>Visitante / Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-07</td><td>Consultar señas por categoría</td><td>Visitante / Estudiante</td><td class="c">Media</td></tr>
+    <tr><td>HU-08</td><td>Ver el detalle de una seña y guardarla</td><td>Estudiante</td><td class="c">Alta</td></tr>
+    <tr><td>HU-09</td><td>Elegir qué practicar</td><td>Estudiante</td><td class="c">Media</td></tr>
+    <tr><td>HU-10</td><td>Responder la práctica</td><td>Estudiante</td><td class="c">Media</td></tr>
+    <tr><td>HU-11</td><td>Conocer mi resultado</td><td>Estudiante</td><td class="c">Media</td></tr>
+    <tr><td>HU-12</td><td>Consultar mi perfil</td><td>Estudiante</td><td class="c">Media</td></tr>
+    <tr><td>HU-13</td><td>Usar IncluSign desde el celular</td><td>Visitante / Estudiante</td><td class="c">Alta</td></tr>
+  </table>
+</section>
+
+<section class="story">
+  <h3>HU-01 Crear una cuenta</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>visitante</strong>, quiero crear una cuenta para guardar mi avance, mis señas favoritas y mis resultados de práctica.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-01, RQ-14 · <span class="label">Criterios de aceptación:</span> CA-01, CA-02, CA-03</div>
+  </div>
+  <figure><p class="flabel">Figura 1</p><p class="ftitle">Pantalla de registro</p><img src="../capturas/02-registro.png" alt="Pantalla de registro"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-02 Iniciar sesión</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero iniciar sesión con mi correo y contraseña para continuar mi aprendizaje desde donde lo dejé.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-01, RQ-14 · <span class="label">Criterios de aceptación:</span> CA-04, CA-05, CA-06</div>
+  </div>
+  <figure><p class="flabel">Figura 2</p><p class="ftitle">Pantalla de inicio de sesión</p><img src="../capturas/01-login.png" alt="Pantalla de inicio de sesión"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-03 Ver mi avance y la siguiente lección</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero ver mi avance y cuál es mi siguiente lección para aprender de forma constante sin perderme en la ruta.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-02 · <span class="label">Criterios de aceptación:</span> CA-07, CA-08</div>
+  </div>
+  <figure><p class="flabel">Figura 3</p><p class="ftitle">Mi aprendizaje</p><img src="../capturas/03-inicio.png" alt="Pantalla Mi aprendizaje"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-04 Explorar los cursos</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>persona interesada en la LSC</strong>, quiero ver los cursos y sus lecciones organizados por nivel para elegir qué aprender.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-03 · <span class="label">Criterios de aceptación:</span> CA-09, CA-10</div>
+  </div>
+  <figure><p class="flabel">Figura 4</p><p class="ftitle">Catálogo de lecciones</p><img src="../capturas/04-catalogo.png" alt="Catálogo de lecciones"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-05 Aprender las señas de una lección</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero ver en video, una por una, las señas de la lección para aprender a realizarlas correctamente.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-02, RQ-04, RQ-09 · <span class="label">Criterios de aceptación:</span> CA-11, CA-12</div>
+  </div>
+  <figure><p class="flabel">Figura 5</p><p class="ftitle">Lección con sus señas</p><img src="../capturas/05-leccion.png" alt="Lección con sus señas"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-06 Buscar una palabra</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>persona oyente</strong>, quiero buscar una palabra en el diccionario para saber rápidamente cómo se dice en LSC cuando la necesito.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-05 · <span class="label">Criterios de aceptación:</span> CA-13, CA-14</div>
+  </div>
+  <figure><p class="flabel">Figura 6</p><p class="ftitle">Diccionario de LSC</p><img src="../capturas/06-diccionario.png" alt="Diccionario de LSC"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-07 Consultar señas por categoría</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>persona interesada en la LSC</strong>, quiero ver las señas agrupadas por tema (saludos, emociones, cualidades, etc.) para aprender el vocabulario de una situación concreta.</div>
+    <div><span class="label">Prioridad:</span> Media · <span class="label">Requisitos:</span> RQ-05 · <span class="label">Criterios de aceptación:</span> CA-15</div>
+  </div>
+  <figure><p class="flabel">Figura 7</p><p class="ftitle">Señas de la categoría “Emociones”</p><img src="../capturas/07-busqueda.png" alt="Filtro por categoría"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-08 Ver el detalle de una seña y guardarla</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero ver el video de una seña y guardarla en mis favoritas para repasarla cuando quiera.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-04, RQ-06, RQ-09 · <span class="label">Criterios de aceptación:</span> CA-16, CA-17</div>
+  </div>
+  <figure><p class="flabel">Figura 8</p><p class="ftitle">Ficha de la seña “Gracias”</p><img src="../capturas/08-sena.png" alt="Ficha de una seña"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-09 Elegir qué practicar</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero elegir el tema y la cantidad de preguntas de mi práctica para reforzar lo que más necesito.</div>
+    <div><span class="label">Prioridad:</span> Media · <span class="label">Requisitos:</span> RQ-07 · <span class="label">Criterios de aceptación:</span> CA-18</div>
+  </div>
+  <figure><p class="flabel">Figura 9</p><p class="ftitle">Configuración de la práctica</p><img src="../capturas/09-practica-config.png" alt="Configuración de la práctica"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-10 Responder la práctica</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero ver el video de una seña e identificar a qué palabra corresponde para comprobar si la reconozco.</div>
+    <div><span class="label">Prioridad:</span> Media · <span class="label">Requisitos:</span> RQ-07, RQ-10 · <span class="label">Criterios de aceptación:</span> CA-19, CA-20</div>
+  </div>
+  <figure><p class="flabel">Figura 10</p><p class="ftitle">Pregunta de la práctica</p><img src="../capturas/10-practica-pregunta.png" alt="Pregunta de la práctica"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-11 Conocer mi resultado</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero ver mi puntaje y las señas que fallé para saber qué debo repasar.</div>
+    <div><span class="label">Prioridad:</span> Media · <span class="label">Requisitos:</span> RQ-07 · <span class="label">Criterios de aceptación:</span> CA-21, CA-22</div>
+  </div>
+  <figure><p class="flabel">Figura 11</p><p class="ftitle">Resultado de la práctica</p><img src="../capturas/11-practica-resultado.png" alt="Resultado de la práctica"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-12 Consultar mi perfil</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>estudiante</strong>, quiero consultar mi perfil para ver todo mi progreso en un solo lugar y mantener mis datos actualizados.</div>
+    <div><span class="label">Prioridad:</span> Media · <span class="label">Requisitos:</span> RQ-08 · <span class="label">Criterios de aceptación:</span> CA-23, CA-24</div>
+  </div>
+  <figure><p class="flabel">Figura 12</p><p class="ftitle">Mi perfil</p><img src="../capturas/12-perfil.png" alt="Mi perfil"></figure>
+</section>
+
+<section class="story">
+  <h3>HU-13 Usar IncluSign desde el celular</h3>
+  <div class="story-card">
+    <div><span class="label">Historia:</span> Como <strong>persona oyente</strong>, quiero usar IncluSign desde mi celular para consultar una seña en cualquier lugar, en el momento en que la necesito.</div>
+    <div><span class="label">Prioridad:</span> Alta · <span class="label">Requisitos:</span> RQ-11, RQ-13 · <span class="label">Criterios de aceptación:</span> CA-25</div>
+  </div>
+  <figure><p class="flabel">Figura 13</p><p class="ftitle">Mi aprendizaje en un celular</p><img class="phone" src="../capturas/15-movil.png" alt="Vista en celular"></figure>
+</section>
+
+<!-- ===================== CONCLUSIONES ===================== -->
+<section class="newpage">
+  <h2>Conclusiones</h2>
+  <p>La recolección de requisitos a partir del documento de formulación y de la revisión de una primera maqueta permitió identificar funciones que no se habían previsto al inicio, como la búsqueda de palabras, la práctica y el registro del avance, y que resultan centrales para que la herramienta cumpla su propósito.</p>
+  <p>Redactar criterios de aceptación concretos para cada historia de usuario hizo posible comprobar, de manera objetiva, que el prototipo cumple lo que cada tipo de usuario necesita. Los 25 criterios definidos se verificaron sobre el prototipo y se cumplen.</p>
+  <p>El prototipo permite aprender con lecciones organizadas, consultar señas por palabra o por tema, practicar y conocer el propio avance, tanto en computador como en celular. Usar los videos oficiales del INSOR permite que cada seña se aprenda tal como la realiza una persona usuaria de la LSC, lo que reduce el riesgo de enseñar información incorrecta. Como siguientes pasos, el equipo ampliará el vocabulario con más videos de fuentes oficiales y realizará pruebas de uso con personas oyentes, en coherencia con el cronograma propuesto.</p>
+  <p>IncluSign se mantiene como una herramienta de apoyo para el primer acercamiento a la Lengua de Señas Colombiana y no como un reemplazo de su enseñanza formal.</p>
+</section>
+
+<!-- ===================== REFERENCIAS ===================== -->
+<section class="refs newpage">
+  <h2 style="text-align:center">Referencias</h2>
+  <p>Departamento Administrativo Nacional de Estadística, DANE. (2021). <em>Mercado laboral de las personas con discapacidad</em>. https://www.dane.gov.co/index.php/estadisticas-por-tema/mercado-laboral/mercado-laboral-de-las-personas-con-discapacidad</p>
+  <p>Gual Ortí, J. (2016). <em>Fundamentos del modelado y prototipado virtual en el diseño de productos</em>. Universitat Jaume I, Servei de Comunicació i Publicacions.</p>
+  <p>Instituto Nacional para Sordos, INSOR. (2026). <em>Datos estadísticos: Población sorda en Colombia</em>. INSOR Conecta. https://conecta.insor.gov.co/datos-estadisticos/</p>
+  <p>Instituto Nacional para Sordos, INSOR. (2019). <em>Una seña para ti</em> [Serie de videos]. INSOR Conecta. https://conecta.insor.gov.co/contenidos-accesibles/</p>
+  <p>Instituto Nacional para Sordos, INSOR. (s.f.). <em>Diccionario básico de la Lengua de Señas Colombiana</em>. https://educativo.insor.gov.co/diccionario/</p>
+  <p>Suárez, E. C. (2017). Prototipo, contexto e ingeniería del software. <em>Estudios de Postgrado en Sistemas de Información</em>, 2–20.</p>
+</section>
+
+</body>
+</html>

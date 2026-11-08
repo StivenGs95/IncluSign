@@ -268,6 +268,133 @@ a:hover { color: var(--brand-navy); }
   .sidebar-collapsed .app-nav-link span { display: inline; }
 }
 
+/* ===== Prototipo funcional: componentes nuevos ===== */
+.skip-link { position: absolute; left: -999px; top: 8px; z-index: 2000; padding: .6rem 1rem; border-radius: 10px; background: var(--brand-navy); color: #fff; }
+.skip-link:focus { left: 12px; color: #fff; }
+.app-footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
+.alert-soft { border: 1px solid var(--line); border-radius: 14px; }
+.demo-hint { padding: .7rem .9rem; border: 1px dashed #b4d7da; border-radius: 12px; background: #f6fbfb; color: var(--muted); font-size: .8rem; }
+.sidebar-profile:hover strong { color: var(--brand-blue); }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 99px; background: #fff; color: var(--brand-navy); font-size: .82rem; font-weight: 650; text-decoration: none; transition: background-color .18s ease, border-color .18s ease; }
+.chip:hover { border-color: var(--brand-sky); background: var(--soft-blue); color: var(--brand-navy); }
+.chip.active { border-color: var(--brand-navy); background: var(--brand-navy); color: #fff; }
+.chip-count { padding: 0 6px; border-radius: 99px; background: rgba(18,62,122,.08); font-size: .7rem; }
+.chip.active .chip-count { background: rgba(255,255,255,.2); }
+
+.course-row { padding: 12px 0; border-bottom: 1px solid #edf2f4; }
+.course-row:last-child { border-bottom: 0; }
+.lesson-link { color: var(--ink); font-weight: 600; text-decoration: none; }
+.lesson-link:hover { color: var(--brand-blue); text-decoration: underline; }
+.lesson-check { display: inline-grid; width: 20px; height: 20px; margin-right: 6px; place-items: center; border-radius: 50%; background: #d9f3ec; color: #0b7a5a; font-size: .72rem; font-weight: 800; vertical-align: 1px; }
+.lesson-check-lg { width: 32px; height: 32px; font-size: 1rem; vertical-align: middle; }
+
+/* Diccionario */
+.dictionary-search { display: flex; align-items: center; gap: 10px; }
+.dictionary-search .form-control { border: 0; box-shadow: none; font-size: 1.05rem; background: transparent; }
+.search-icon svg { width: 22px; height: 22px; margin-left: 6px; fill: none; stroke: var(--brand-blue); stroke-width: 2; stroke-linecap: round; }
+.sign-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.sign-card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: transform .18s ease, box-shadow .18s ease; }
+.sign-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.sign-card-link { display: block; color: var(--ink); text-decoration: none; }
+.sign-card-link:focus-visible { outline: 3px solid rgba(8,127,136,.35); outline-offset: -3px; }
+.sign-card-body { display: grid; gap: 2px; padding: 11px 13px 13px; }
+.sign-card-body strong { font-size: 1rem; }
+.sign-card-body small { color: var(--muted); font-size: .76rem; }
+.sign-fav-form { position: absolute; top: 8px; right: 8px; }
+.sign-fav { display: grid; width: 34px; height: 34px; place-items: center; border: 0; border-radius: 50%; background: rgba(255,255,255,.92); color: var(--brand-navy); font-size: 1.05rem; box-shadow: 0 2px 8px rgba(18,62,122,.15); }
+.sign-fav.is-fav { color: #d99a00; }
+
+/* Recursos visuales */
+.sign-media { display: block; width: 100%; border-radius: 16px; background: #0f2f57; object-fit: cover; }
+.sign-media-sm { aspect-ratio: 4 / 3; border-radius: 0; }
+.sign-media-lg { aspect-ratio: 4 / 3; }
+.sign-media-xl { aspect-ratio: 16 / 10; object-fit: contain; }
+.sign-placeholder { position: relative; display: grid; place-content: center; justify-items: center; gap: 4px; overflow: hidden; border-radius: 16px; color: #fff; text-align: center; background: radial-gradient(circle at 80% 15%, rgba(162,218,218,.45), transparent 40%), linear-gradient(145deg, var(--brand-navy), var(--brand-blue)); }
+.sign-placeholder::after { position: absolute; right: -40px; bottom: -60px; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 26px rgba(255,255,255,.05); content: ""; }
+.sign-placeholder-icon { font-size: 2.6rem; line-height: 1; filter: drop-shadow(0 4px 10px rgba(0,0,0,.2)); }
+.sign-placeholder strong { font-size: 1.6rem; letter-spacing: -.03em; }
+.sign-placeholder small { color: rgba(255,255,255,.75); font-size: .74rem; }
+.sign-placeholder-sm { aspect-ratio: 4 / 3; border-radius: 0; }
+.sign-placeholder-sm .sign-placeholder-icon { font-size: 2rem; }
+.sign-placeholder-sm strong { display: none; }
+.sign-placeholder-lg { min-height: 100%; aspect-ratio: 4 / 3; }
+.sign-placeholder-xl { aspect-ratio: 16 / 10; }
+.sign-placeholder-xl .sign-placeholder-icon { font-size: 4.5rem; }
+.sign-placeholder-xl strong { font-size: 2.6rem; }
+.sign-card:nth-child(3n+2) .sign-placeholder { background: radial-gradient(circle at 80% 15%, rgba(162,218,218,.4), transparent 40%), linear-gradient(145deg, var(--brand-navy), var(--brand-lilac)); }
+.sign-card:nth-child(3n+3) .sign-placeholder { background: radial-gradient(circle at 80% 15%, rgba(255,255,255,.35), transparent 40%), linear-gradient(145deg, #118f98, var(--brand-sky)); }
+
+.sign-parts { display: grid; grid-template-columns: minmax(110px, auto) 1fr; gap: 8px 14px; margin: 0; font-size: .9rem; }
+.sign-parts dt { padding-top: 2px; color: var(--brand-blue); font-size: .74rem; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; }
+.sign-parts dd { margin: 0; }
+.badge-validation { display: inline-flex; flex: 0 0 auto; align-items: center; padding: 4px 9px; border-radius: 99px; background: #fff4dc; color: #8a5a00; font-size: .7rem; font-weight: 700; white-space: nowrap; }
+.badge-validation.is-valid { background: #d9f3ec; color: #0b7a5a; }
+
+.sign-step[hidden] { display: none !important; }
+.sign-step + .sign-step { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.sign-viewer.is-stepper .sign-step + .sign-step { margin-top: 0; padding-top: 0; border-top: 0; }
+.sign-stepper { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 1.25rem; }
+.sign-stepper[hidden] { display: none; }
+.sign-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+.sign-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 99px; background: #bfd2d7; transition: width .2s ease, background-color .2s ease; }
+.sign-dots button.active { width: 26px; background: var(--brand-blue); }
+
+/* Práctica */
+.quiz-question[hidden] { display: none !important; }
+.quiz-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.quiz-option { display: grid; min-height: 54px; place-items: center; font-size: 1rem; }
+.btn-check:checked + .quiz-option { border-color: var(--brand-navy); background: var(--brand-navy); color: #fff; }
+.btn-check:focus-visible + .quiz-option { outline: 3px solid rgba(8,127,136,.35); outline-offset: 2px; }
+.option-card { display: flex; align-items: flex-start; gap: 12px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 14px; background: #fbfefe; cursor: pointer; }
+.option-card:has(input[type=radio]:checked) { border-color: var(--brand-blue); background: var(--soft-blue); }
+.option-card .form-check-input { flex: 0 0 auto; margin-top: .2rem; }
+.option-card > span { display: grid; flex: 1; gap: 2px; min-width: 0; }
+.option-card small { color: var(--muted); }
+.result-hero { display: flex; align-items: center; gap: 28px; }
+.result-score { display: grid; width: 132px; height: 132px; flex: 0 0 auto; place-content: center; border-radius: 50%; text-align: center; background: radial-gradient(closest-side, #fff 78%, transparent 79%), conic-gradient(var(--brand-blue) calc(var(--pct) * 1%), #e4eef0 0); }
+.result-score strong { font-size: 1.7rem; line-height: 1; }
+.result-score small { color: var(--muted); font-weight: 700; }
+.answer-mark { display: inline-grid; width: 24px; height: 24px; margin-right: 8px; place-items: center; border-radius: 50%; font-size: .75rem; font-weight: 800; }
+.answer-mark.is-ok { background: #d9f3ec; color: #0b7a5a; }
+.answer-mark.is-bad { background: #fde3e3; color: #b42318; }
+.pill-success { background: #d9f3ec; color: #0b7a5a; }
+
+/* Videos de señas */
+.sign-card > .sign-fav { position: absolute; top: 8px; right: 8px; }
+.sign-thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #0f2f57; }
+.sign-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.sign-card:hover .sign-thumb img { transform: scale(1.04); }
+.sign-thumb-play { position: absolute; left: 10px; bottom: 10px; display: grid; width: 34px; height: 34px; place-items: center; padding-left: 3px; border-radius: 50%; background: rgba(18,62,122,.85); color: #fff; font-size: .8rem; }
+.sign-video { overflow: hidden; border-radius: 16px; background: #0f2f57; }
+.sign-video iframe { border: 0; }
+.video-credit { margin: .5rem 0 0; color: var(--muted); font-size: .74rem; }
+/* En la práctica se muestra solo la mitad izquierda del video (la persona señando) para no revelar la palabra escrita. */
+.quiz-video { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; background: #fff; }
+.quiz-video iframe { position: absolute; top: 0; left: 0; width: 178%; height: 100%; border: 0; pointer-events: none; }
+.quiz-video-band { position: absolute; top: 0; right: 0; left: 0; padding: 10px 14px; background: var(--brand-navy); color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .04em; }
+.learning-slide-current .slide-visual img { object-fit: cover; }
+
+/* Administración */
+.admin-table th { padding: 14px 16px; border-bottom-color: var(--line); background: #f7fbfb; color: var(--muted); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.admin-table td { padding: 12px 16px; border-bottom-color: #edf2f4; }
+.lesson-checklist { max-height: 320px; overflow-y: auto; padding-right: 6px; }
+
+@media (max-width: 991.98px) {
+  .app-nav, .sidebar-collapsed .app-nav { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+  .app-footer { margin-bottom: 1rem; }
+}
+@media (max-width: 767.98px) {
+  .quiz-options { grid-template-columns: 1fr; }
+  .result-hero { flex-direction: column; text-align: center; }
+  .sign-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sign-parts { grid-template-columns: 1fr; gap: 2px; }
+  .sign-parts dd { margin-bottom: 8px; }
+  .dictionary-search { flex-wrap: wrap; }
+  .dictionary-search .form-control { flex: 1 1 60%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
